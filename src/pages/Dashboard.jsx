@@ -2,6 +2,7 @@ import { useState } from "react";
 import SubjectForm from "../components/SubjectForm";
 import ExamForm from "../components/ExamForm";
 import CombinedData from "../components/CombinedData";
+import PriorityList from "../components/PriorityList";
 
 function Dashboard() {
   const [subjects, setSubjects] = useState([]);
@@ -32,6 +33,12 @@ function Dashboard() {
         subjects={subjects}
         exams={exams}
       />
+      <hr />
+
+<PriorityList
+  subjects={subjects}
+  exams={exams}
+/>
     </div>
   );
 }
