@@ -11,18 +11,27 @@ function Dashboard() {
     <div>
       <h2>Dashboard</h2>
 
-      <SubjectForm />
+      <SubjectForm
+        subjects={subjects}
+        setSubjects={setSubjects}
+      />
 
       <hr />
 
-      <ExamForm />
+      <ExamForm
+        exams={exams}
+        setExams={setExams}
+      />
 
       <hr />
 
       <p>Subjects Count: {subjects.length}</p>
       <p>Exams Count: {exams.length}</p>
 
-      <CombinedData />
+      <CombinedData
+        subjects={subjects}
+        exams={exams}
+      />
     </div>
   );
 }

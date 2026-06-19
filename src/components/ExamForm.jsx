@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-function ExamForm() {
-  const [subject, setSubject] = useState("");
+function ExamForm({ exams, setExams }) {  const [subject, setSubject] = useState("");
   const [examDate, setExamDate] = useState("");
-  const [exams, setExams] = useState([]);
+
 
   const addExam = () => {
     if (!subject || !examDate) {

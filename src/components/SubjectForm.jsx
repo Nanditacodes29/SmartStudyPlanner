@@ -1,9 +1,7 @@
 import { useState } from "react";
 
-function SubjectForm() {
-  const [subjectName, setSubjectName] = useState("");
+function SubjectForm({ subjects, setSubjects }) {  const [subjectName, setSubjectName] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [subjects, setSubjects] = useState([]);
 
   const addSubject = () => {
     if (!subjectName || !difficulty) {
@@ -36,14 +34,17 @@ function SubjectForm() {
       <br />
       <br />
 
-      <input
-        type="number"
-        placeholder="Difficulty (1-5)"
-        min="1"
-        max="5"
+      <select
         value={difficulty}
         onChange={(e) => setDifficulty(e.target.value)}
-      />
+      >
+        <option value="">Select Difficulty</option>
+        <option value="1">1 - Very Easy</option>
+        <option value="2">2 - Easy</option>
+        <option value="3">3 - Medium</option>
+        <option value="4">4 - Hard</option>
+        <option value="5">5 - Very Hard</option>
+      </select>
 
       <br />
       <br />
