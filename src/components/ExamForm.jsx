@@ -11,7 +11,7 @@ function ExamForm({ exams, setExams }) {  const [subject, setSubject] = useState
     }
 
     const newExam = {
-      subject: subject,
+      subject: subject.trim().toUpperCase(),
       date: examDate,
     };
 

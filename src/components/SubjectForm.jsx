@@ -10,7 +10,7 @@ function SubjectForm({ subjects, setSubjects }) {  const [subjectName, setSubjec
     }
 
     const newSubject = {
-      name: subjectName,
+      name: subjectName.trim().toUpperCase(),
       difficulty: difficulty,
     };
 
