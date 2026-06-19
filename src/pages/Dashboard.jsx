@@ -3,6 +3,7 @@ import SubjectForm from "../components/SubjectForm";
 import ExamForm from "../components/ExamForm";
 import CombinedData from "../components/CombinedData";
 import PriorityList from "../components/PriorityList";
+import DailyPlan from "../components/DailyPlan";
 
 function Dashboard() {
   const [subjects, setSubjects] = useState([]);
@@ -36,6 +37,12 @@ function Dashboard() {
       <hr />
 
 <PriorityList
+  subjects={subjects}
+  exams={exams}
+/>
+<hr />
+
+<DailyPlan
   subjects={subjects}
   exams={exams}
 />
