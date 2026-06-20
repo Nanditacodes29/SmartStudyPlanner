@@ -12,68 +12,82 @@ function DailyPlan({ subjects, exams }) {
     );
   };
 
-const studyPlan = exams
-  .filter((exam) => !exam.completed)
-  .map((exam) => {
+  const studyPlan = exams
+    .filter((exam) => !exam.completed)
+    .map((exam) => {
 
-    const matchingSubject =
-      subjects.find(
-        (subject) =>
-          subject.name === exam.subject
-      );
+      const matchingSubject =
+        subjects.find(
+          (subject) =>
+            subject.name === exam.subject
+        );
 
-    const difficulty =
-      matchingSubject
-        ? Number(matchingSubject.difficulty)
-        : 1;
+      const difficulty =
+        matchingSubject
+          ? Number(matchingSubject.difficulty)
+          : 1;
 
-    const daysLeft =
-      calculateDaysLeft(exam.date);
+      const daysLeft =
+        calculateDaysLeft(exam.date);
 
-    const priority =
-      difficulty /
-      Math.max(daysLeft, 1);
+      const priority =
+        difficulty /
+        Math.max(daysLeft, 1);
 
-    return {
-      subject: exam.subject,
-      priority: priority,
-    };
-  });
+      return {
+        subject: exam.subject,
+        priority,
+      };
+    })
 
-  studyPlan.sort(
-    (a, b) =>
-      b.priority - a.priority
-  );
+    .sort(
+      (a, b) =>
+        b.priority - a.priority
+    );
 
   return (
-    <div className="center-list">
+    <div className="card">
 
-  {studyPlan.map(
-    (item, index) => {
+      <h3>📅 Daily Study Plan</h3>
 
-      let hours = 1;
+      <div className="center-list">
 
-      if (index === 0)
-        hours = 3;
+        {studyPlan.length === 0 ? (
+          <p>
+            No pending exams.
+          </p>
+        ) : (
 
-      else if (index === 1)
-        hours = 2;
+          studyPlan.map(
+            (item, index) => {
 
-      return (
-        <p key={index}>
-          {item.subject}
-          {" → "}
-          {hours}
-          {" "}
-          {hours === 1
-            ? "Hour"
-            : "Hours"}
-        </p>
-      );
-    }
-  )}
+              let hours = 1;
 
-</div>
+              if (index === 0)
+                hours = 3;
+
+              else if (index === 1)
+                hours = 2;
+
+              return (
+                <p key={index}>
+                  {item.subject}
+                  {" → "}
+                  {hours}
+                  {" "}
+                  {hours === 1
+                    ? "Hour"
+                    : "Hours"}
+                </p>
+              );
+            }
+          )
+
+        )}
+
+      </div>
+
+    </div>
   );
 }
 
