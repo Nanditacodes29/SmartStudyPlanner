@@ -12,7 +12,9 @@ function DailyPlan({ subjects, exams }) {
     );
   };
 
-  const studyPlan = exams.map((exam) => {
+const studyPlan = exams
+  .filter((exam) => !exam.completed)
+  .map((exam) => {
 
     const matchingSubject =
       subjects.find(

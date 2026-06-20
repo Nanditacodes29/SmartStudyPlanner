@@ -11,9 +11,10 @@ function ExamForm({ exams, setExams }) {  const [subject, setSubject] = useState
     }
 
     const newExam = {
-      subject: subject.trim().toUpperCase(),
-      date: examDate,
-    };
+  subject: subject.trim().toUpperCase(),
+  date: examDate,
+  completed: false,
+};
 
     setExams([...exams, newExam]);
 
@@ -58,8 +59,26 @@ function ExamForm({ exams, setExams }) {  const [subject, setSubject] = useState
       <ul>
         {exams.map((exam, index) => (
           <li key={index}>
-            {exam.subject} → {exam.date}
-          </li>
+  {exam.completed ? "✅" : "📚"}{" "}
+  {exam.subject} → {exam.date}
+
+  {!exam.completed && (
+    <button
+      onClick={() => {
+        const updatedExams = [...exams];
+
+        updatedExams[index] = {
+          ...updatedExams[index],
+          completed: true,
+        };
+
+        setExams(updatedExams);
+      }}
+    >
+      Mark Complete
+    </button>
+  )}
+</li>
         ))}
       </ul>
     </div>

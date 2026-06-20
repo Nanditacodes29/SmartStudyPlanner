@@ -21,8 +21,9 @@ function PriorityList({ subjects, exams }) {
       <h3>Priority Ranking</h3>
 
       <ul>
-        {exams.map((exam, index) => {
-
+        {exams
+  .filter((exam) => !exam.completed)
+  .map((exam, index) => {
           const daysLeft =
   calculateDaysLeft(exam.date);
 

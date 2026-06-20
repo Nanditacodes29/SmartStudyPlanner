@@ -1,19 +1,20 @@
-import { useState } from "react";
+function ProgressTracker({
+  subjects,
+  progress,
+  setProgress,
+}) {
 
-function ProgressTracker({ subjects }) {
+  const updateProgress = (
+    subjectName,
+    value
+  ) => {
 
-  const [progress, setProgress] =
-    useState({});
+    setProgress({
+      ...progress,
+      [subjectName]: value,
+    });
 
-  const updateProgress =
-    (subjectName, value) => {
-
-      setProgress({
-        ...progress,
-        [subjectName]: value,
-      });
-
-    };
+  };
 
   return (
     <div>
