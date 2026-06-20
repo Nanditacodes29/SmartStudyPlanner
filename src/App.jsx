@@ -1,12 +1,12 @@
-// App.jsx
 import Dashboard from "./pages/Dashboard";
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      <h1>Smart Study Planner</h1>
+    <>
+      <h1>📚 Smart Study Planner</h1>
       <Dashboard />
-    </div>
+    </>
   );
 }
 

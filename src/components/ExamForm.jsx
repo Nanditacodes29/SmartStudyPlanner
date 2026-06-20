@@ -49,14 +49,12 @@ function ExamForm({ exams, setExams }) {  const [subject, setSubject] = useState
         Add Exam
       </button>
 
-      <p>Subject: {subject}</p>
-      <p>Date: {examDate}</p>
 
       <h3>Exams List</h3>
 
       <p>Total Exams: {exams.length}</p>
 
-      <ul>
+      <ul className="center-list">
         {exams.map((exam, index) => (
           <li key={index}>
   {exam.completed ? "✅" : "📚"}{" "}

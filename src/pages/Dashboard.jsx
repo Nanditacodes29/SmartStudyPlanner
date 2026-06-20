@@ -65,32 +65,48 @@ function Dashboard() {
     setProgress({});
   };
 
-  return (
-    <div>
-      <h2>Dashboard</h2>
+return (
+  <div className="card">
 
-      <button onClick={clearAllData}>
-        Clear All Data
-      </button>
+    <h2>📊 Dashboard</h2>
 
-      <hr />
+    <button
+      className="clear-btn"
+      onClick={clearAllData}
+    >
+      🗑 Reset Planner
+    </button>
 
-      <SubjectForm
-        subjects={subjects}
-        setSubjects={setSubjects}
-      />
+    <hr />
 
-      <hr />
+    <SubjectForm
+      subjects={subjects}
+      setSubjects={setSubjects}
+    />
 
-      <ExamForm
-        exams={exams}
-        setExams={setExams}
-      />
+    <hr />
 
-      <hr />
+    <ExamForm
+      exams={exams}
+      setExams={setExams}
+    />
 
-      <p>Subjects Count: {subjects.length}</p>
-      <p>Exams Count: {exams.length}</p>
+    <hr />
+
+
+      <div className="stats">
+
+  <div className="stat-card">
+    <h3>📚 Subjects</h3>
+    <h2>{subjects.length}</h2>
+  </div>
+
+  <div className="stat-card">
+    <h3>📝 Exams</h3>
+    <h2>{exams.length}</h2>
+  </div>
+
+</div>
 
       <CombinedData
         subjects={subjects}

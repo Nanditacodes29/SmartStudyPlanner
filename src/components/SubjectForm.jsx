@@ -53,8 +53,6 @@ function SubjectForm({ subjects, setSubjects }) {  const [subjectName, setSubjec
         Add Subject
       </button>
 
-      <p>Subject: {subjectName}</p>
-      <p>Difficulty: {difficulty}</p>
 
       <h3>Subjects List</h3>
 

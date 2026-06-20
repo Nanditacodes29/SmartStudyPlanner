@@ -46,33 +46,34 @@ const studyPlan = exams
   );
 
   return (
-    <div>
-      <h3>Daily Study Plan</h3>
+    <div className="center-list">
 
-      <ul>
+  {studyPlan.map(
+    (item, index) => {
 
-        {studyPlan.map(
-          (item, index) => {
+      let hours = 1;
 
-            let hours = 1;
+      if (index === 0)
+        hours = 3;
 
-            if (index === 0)
-              hours = 3;
+      else if (index === 1)
+        hours = 2;
 
-            else if (index === 1)
-              hours = 2;
+      return (
+        <p key={index}>
+          {item.subject}
+          {" → "}
+          {hours}
+          {" "}
+          {hours === 1
+            ? "Hour"
+            : "Hours"}
+        </p>
+      );
+    }
+  )}
 
-            return (
-              <li key={index}>
-                {item.subject}
-                {" → "}
-{hours} {hours === 1 ? "Hour" : "Hours"}              </li>
-            );
-          }
-        )}
-
-      </ul>
-    </div>
+</div>
   );
 }
 
