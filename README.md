@@ -7,6 +7,9 @@ Smart Study Planner is a React-based productivity application designed to help s
 The application uses browser localStorage to persist data, ensuring that study information remains available even after refreshing or closing the browser.
 
 ---
+## 🌐 Live Demo
+
+https://your-vercel-link.vercel.app
 
 ## ✨ Features
 
